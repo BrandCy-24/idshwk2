@@ -10,5 +10,5 @@ include: <include file idshwk1.pcap>
 # Snort rule 1
 alert tcp any any -> any 3399(pcre: "/login|Initial"; flowbits: set)
 
-# Snort rule
+# Snort rule 2
 alert tcp any any -> any 3399(msg: "bot founded"; content: "192.168.1.1: 2022"; flowbits: set; sid: 1000001)
