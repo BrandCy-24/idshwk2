@@ -1,0 +1,14 @@
+# problem: if snort see two packets in a flow with 
+# first packet has “login” or “Initial” in payload, destination port is 3399;
+# and second packet has a “IPv4Address:Port”string(E.g. 123.45.6.7:8080) in payload. destination port is 
+3399;
+# then output a alert with msg ”bot founded” and sid 1000001
+
+# 导入所需文件
+include: <include file idshwk1.pcap>
+
+# Snort rule 1
+alert tcp any any -> any 3399(pcre: "/login|Initial"; flowbits: set)
+
+# Snort rule
+alert tcp any any -> any 3399(msg: "bot founded"; content: "192.168.1.1: 2022"; flowbits: set; sid: 1000001)
