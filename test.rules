@@ -5,7 +5,7 @@
 # then output a alert with msg ”bot founded” and sid 1000001
 
 # 导入所需文件
-include: <include file idshwk1.pcap>
+include: <include file idshwk2.pcap>
 
 # Snort rule 1
 alert tcp any any -> any 3399(pcre: "/login|Initial"; flowbits: set)
